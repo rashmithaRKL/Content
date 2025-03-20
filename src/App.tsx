@@ -15,6 +15,7 @@ import NotFound from "./pages/NotFound";
 
 // Import layout
 import Layout from "./components/Layout";
+import ScrollToTop from "./components/ScrollToTop";
 
 // Import Framer Motion (for animations)
 import { AnimatePresence } from "framer-motion";
@@ -27,6 +28,7 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
+        <ScrollToTop />
         <AnimatePresence mode="wait">
           <Layout>
             <Routes>

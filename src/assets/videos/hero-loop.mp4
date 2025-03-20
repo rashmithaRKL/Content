@@ -1,3 +1,8 @@
-
 // This is a placeholder for the hero video.
 // In a real project, you would need to upload an actual MP4 video file.
+// For best performance:
+// - Keep the video under 10MB
+// - Use H.264 codec with MP4 container
+// - Recommended resolution: 1920x1080 or 1280x720
+// - Set video to not autoplay on mobile to save data
+// - Include a poster image as a fallback

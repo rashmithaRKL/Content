@@ -88,7 +88,7 @@
 
 @layer components {
   .glass-card {
-    @apply rounded-2xl bg-white/80 backdrop-blur-md shadow-lg border border-white/20 p-6;
+    @apply rounded-2xl bg-white/80 backdrop-blur-md shadow-lg border border-white/20 p-6 transition-all duration-300;
   }
   
   .hover-lift {
@@ -102,13 +102,13 @@
   .btn-primary {
     @apply px-6 py-3 bg-primary text-primary-foreground font-medium rounded-full shadow-md 
     transition-all duration-300 hover:shadow-lg hover:scale-[1.03] hover:brightness-110 
-    active:scale-[0.98] active:brightness-90;
+    active:scale-[0.98] active:brightness-90 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:ring-offset-2;
   }
   
   .btn-secondary {
     @apply px-6 py-3 bg-secondary text-secondary-foreground font-medium rounded-full shadow 
     transition-all duration-300 hover:shadow-md hover:scale-[1.03] hover:brightness-95
-    active:scale-[0.98] active:brightness-90;
+    active:scale-[0.98] active:brightness-90 focus:outline-none focus:ring-2 focus:ring-secondary/50 focus:ring-offset-2;
   }
   
   .section-padding {
@@ -125,6 +125,46 @@
     opacity: 1;
     transform: translateY(0);
   }
+  
+  /* Enhanced focus styles for accessibility */
+  .focus-ring {
+    @apply focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2;
+  }
+  
+  /* Add new smooth hover transitions */
+  .hover-glow {
+    @apply transition-all duration-300 hover:shadow-[0_0_15px_rgba(0,112,243,0.3)];
+  }
+  
+  /* Add new pulsing animation */
+  .pulse-slow {
+    animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+  
+  @keyframes pulse {
+    0%, 100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 0.9;
+      transform: scale(1.03);
+    }
+  }
+  
+  /* Add floating animation */
+  .float {
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
 }
 
 .blur-load {
@@ -139,4 +179,25 @@
 .blur-load > img {
   opacity: 0;
   transition: opacity 0.3s ease-in-out;
+}
+
+/* Improved page transitions */
+.page-enter {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.page-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.4s, transform 0.4s;
+}
+
+.page-exit {
+  opacity: 1;
+}
+
+.page-exit-active {
+  opacity: 0;
+  transition: opacity 0.3s;
 }

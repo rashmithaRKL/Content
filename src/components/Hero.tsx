@@ -8,11 +8,27 @@ const Hero: React.FC = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
   
   useEffect(() => {
-    // Load video
-    if (videoRef.current) {
-      videoRef.current.play().catch(error => {
-        console.error("Video play failed:", error);
-      });
+    // Only attempt to play video if component is mounted
+    const videoElement = videoRef.current;
+    if (videoElement) {
+      // Add event listener for loadedmetadata to ensure video is loaded before playing
+      const handleLoaded = () => {
+        videoElement.play().catch(error => {
+          console.error("Video play failed:", error);
+        });
+      };
+      
+      videoElement.addEventListener('loadedmetadata', handleLoaded);
+      
+      // If video is already loaded, play it
+      if (videoElement.readyState >= 2) {
+        handleLoaded();
+      }
+      
+      return () => {
+        videoElement.removeEventListener('loadedmetadata', handleLoaded);
+        videoElement.pause();
+      };
     }
   }, []);
 
@@ -20,7 +36,7 @@ const Hero: React.FC = () => {
     <div className="relative min-h-screen flex items-center overflow-hidden">
       {/* Background video */}
       <div className="absolute inset-0 z-0">
-        <div className="absolute inset-0 bg-black/40 z-10"></div>
+        <div className="absolute inset-0 bg-black/50 z-10"></div>
         <video 
           ref={videoRef}
           className="w-full h-full object-cover"
@@ -28,6 +44,7 @@ const Hero: React.FC = () => {
           muted
           loop
           playsInline
+          preload="auto"
         >
           <source src="/src/assets/videos/hero-loop.mp4" type="video/mp4" />
           Your browser does not support the video tag.
@@ -73,9 +90,9 @@ const Hero: React.FC = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.8 }}
           >
-            <Link to="/services" className="btn-primary">
+            <Link to="/services" className="btn-primary group">
               Explore Services
-              <ArrowRight size={16} className="ml-2" />
+              <ArrowRight size={16} className="ml-2 group-hover:translate-x-1 transition-transform" />
             </Link>
             <Link to="/contact" className="px-6 py-3 bg-white/10 backdrop-blur-sm text-white font-medium rounded-full transition-all duration-300 hover:bg-white/20">
               Contact Us
