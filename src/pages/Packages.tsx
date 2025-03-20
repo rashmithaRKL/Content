@@ -167,11 +167,11 @@ const Packages = () => {
             {[
               {
                 question: 'How long does it take to deliver a package?',
-                answer: 'Delivery timelines vary depending on the package complexity. Basic packages are typically delivered within 7-10 business days, while Premium and Enterprise solutions may take 2-3 weeks. We'll provide a specific timeline during our initial consultation.'
+                answer: 'Delivery timelines vary depending on the package complexity. Basic packages are typically delivered within 7-10 business days, while Premium and Enterprise solutions may take 2-3 weeks. We\'ll provide a specific timeline during our initial consultation.'
               },
               {
                 question: 'Can I customize a package to fit my specific needs?',
-                answer: 'Absolutely! While our pre-designed packages work for most clients, we understand that every brand is unique. Contact us to discuss your specific requirements, and we'll create a tailored solution just for you.'
+                answer: 'Absolutely! While our pre-designed packages work for most clients, we understand that every brand is unique. Contact us to discuss your specific requirements, and we\'ll create a tailored solution just for you.'
               },
               {
                 question: 'How many revisions are included in each package?',
@@ -183,7 +183,7 @@ const Packages = () => {
               },
               {
                 question: 'What information do you need from me to get started?',
-                answer: 'To begin, we'll need your brand guidelines, target audience information, content goals, any existing content examples, and access to relevant platforms (if applicable). We'll provide a detailed onboarding document once you select a package.'
+                answer: 'To begin, we\'ll need your brand guidelines, target audience information, content goals, any existing content examples, and access to relevant platforms (if applicable). We\'ll provide a detailed onboarding document once you select a package.'
               }
             ].map((faq, index) => (
               <ScrollAnimation key={index} delay={index * 100}>
