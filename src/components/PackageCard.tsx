@@ -2,6 +2,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Check } from 'lucide-react';
+import { Button } from '@/components/ui/button';
 
 interface PackageCardProps {
   title: string;
@@ -20,7 +21,7 @@ const PackageCard: React.FC<PackageCardProps> = ({
 }) => {
   return (
     <motion.div 
-      className={`glass-card hover-lift relative ${
+      className={`glass-card hover-lift relative h-full flex flex-col ${
         popular 
           ? 'border-primary/30 shadow-lg shadow-primary/10' 
           : 'border-white/20'
@@ -44,7 +45,7 @@ const PackageCard: React.FC<PackageCardProps> = ({
       
       <p className="text-muted-foreground mb-6">{description}</p>
       
-      <ul className="space-y-3 mb-6">
+      <ul className="space-y-3 mb-6 flex-grow">
         {features.map((feature, index) => (
           <li key={index} className="flex items-start">
             <Check size={18} className="text-primary mr-2 mt-0.5 flex-shrink-0" />
@@ -53,9 +54,12 @@ const PackageCard: React.FC<PackageCardProps> = ({
         ))}
       </ul>
       
-      <button className={popular ? "btn-primary w-full" : "btn-secondary w-full"}>
+      <Button 
+        className={popular ? "btn-primary w-full mt-auto" : "btn-secondary w-full mt-auto"}
+        size="full"
+      >
         Get Started
-      </button>
+      </Button>
     </motion.div>
   );
 };

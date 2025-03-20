@@ -1,4 +1,3 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -74,15 +73,22 @@
   
   html {
     scroll-behavior: smooth;
+    -webkit-tap-highlight-color: transparent;
   }
   
   body {
     @apply bg-background text-foreground;
     font-feature-settings: "rlig" 1, "calt" 1;
+    overflow-x: hidden;
   }
   
   h1, h2, h3, h4, h5, h6 {
     @apply font-medium tracking-tight;
+  }
+
+  button {
+    -webkit-appearance: none;
+    appearance: none;
   }
 }
 
@@ -102,13 +108,21 @@
   .btn-primary {
     @apply px-6 py-3 bg-primary text-primary-foreground font-medium rounded-full shadow-md 
     transition-all duration-300 hover:shadow-lg hover:scale-[1.03] hover:brightness-110 
-    active:scale-[0.98] active:brightness-90 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:ring-offset-2;
+    active:scale-[0.98] active:brightness-90 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:ring-offset-2
+    w-auto inline-flex items-center justify-center;
   }
   
   .btn-secondary {
     @apply px-6 py-3 bg-secondary text-secondary-foreground font-medium rounded-full shadow 
     transition-all duration-300 hover:shadow-md hover:scale-[1.03] hover:brightness-95
-    active:scale-[0.98] active:brightness-90 focus:outline-none focus:ring-2 focus:ring-secondary/50 focus:ring-offset-2;
+    active:scale-[0.98] active:brightness-90 focus:outline-none focus:ring-2 focus:ring-secondary/50 focus:ring-offset-2
+    w-auto inline-flex items-center justify-center;
+  }
+  
+  @media (max-width: 640px) {
+    .btn-primary, .btn-secondary {
+      @apply px-4 py-2 text-sm;
+    }
   }
   
   .section-padding {
@@ -126,17 +140,14 @@
     transform: translateY(0);
   }
   
-  /* Enhanced focus styles for accessibility */
   .focus-ring {
     @apply focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2;
   }
   
-  /* Add new smooth hover transitions */
   .hover-glow {
     @apply transition-all duration-300 hover:shadow-[0_0_15px_rgba(0,112,243,0.3)];
   }
   
-  /* Add new pulsing animation */
   .pulse-slow {
     animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
   }
@@ -152,7 +163,6 @@
     }
   }
   
-  /* Add floating animation */
   .float {
     animation: float 6s ease-in-out infinite;
   }
@@ -181,7 +191,6 @@
   transition: opacity 0.3s ease-in-out;
 }
 
-/* Improved page transitions */
 .page-enter {
   opacity: 0;
   transform: translateY(20px);
@@ -200,4 +209,10 @@
 .page-exit-active {
   opacity: 0;
   transition: opacity 0.3s;
+}
+
+@supports (-webkit-touch-callout: none) {
+  .min-h-screen {
+    min-height: -webkit-fill-available;
+  }
 }
