@@ -124,14 +124,11 @@ const Services = () => {
             >
               Our Services
             </motion.span>
-            <motion.h1 
+            <AnimatedHeading 
+              text="Content Creation Services" 
               className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-            >
-              Content Creation <span className="text-gradient">Services</span>
-            </motion.h1>
+              gradient={true}
+            />
             <motion.p 
               className="text-xl text-muted-foreground"
               initial={{ opacity: 0, y: 20 }}
@@ -150,24 +147,50 @@ const Services = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {services.map((service, index) => (
               <ScrollAnimation key={service.title} delay={index * 100}>
-                <div className="glass-card hover-lift h-full">
-                  <div className="mb-6 inline-flex p-3 rounded-full bg-primary/10 text-primary">
+                <motion.div 
+                  className="glass-card hover-lift h-full"
+                  whileHover={{ 
+                    backgroundColor: 'rgba(255, 255, 255, 0.9)',
+                    boxShadow: '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)',
+                    transition: { duration: 0.3 }
+                  }}
+                >
+                  <motion.div 
+                    className="mb-6 inline-flex p-3 rounded-full bg-primary/10 text-primary"
+                    whileHover={{ 
+                      scale: 1.1,
+                      backgroundColor: 'rgba(0, 112, 243, 0.2)',
+                      transition: { duration: 0.3 }
+                    }}
+                  >
                     <service.icon size={24} />
-                  </div>
-                  <h3 className="text-2xl font-semibold mb-4">{service.title}</h3>
+                  </motion.div>
+                  <h3 className="text-2xl font-semibold mb-4 animate-text-gradient bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent">{service.title}</h3>
                   <p className="text-muted-foreground mb-6">{service.description}</p>
                   <div className="border-t border-border pt-6 mt-auto">
                     <h4 className="font-medium mb-3">What's included:</h4>
                     <ul className="space-y-2">
                       {service.details.map((detail, idx) => (
-                        <li key={idx} className="flex items-start">
-                          <ArrowRight size={14} className="text-primary mr-2 mt-1 flex-shrink-0" />
+                        <motion.li 
+                          key={idx} 
+                          className="flex items-start"
+                          initial={{ opacity: 0, x: -10 }}
+                          whileInView={{ opacity: 1, x: 0 }}
+                          transition={{ delay: idx * 0.1 }}
+                          viewport={{ once: true }}
+                        >
+                          <motion.div 
+                            whileHover={{ rotate: 90, scale: 1.2 }}
+                            transition={{ duration: 0.2 }}
+                          >
+                            <ArrowRight size={14} className="text-primary mr-2 mt-1 flex-shrink-0" />
+                          </motion.div>
                           <span className="text-sm">{detail}</span>
-                        </li>
+                        </motion.li>
                       ))}
                     </ul>
                   </div>
-                </div>
+                </motion.div>
               </ScrollAnimation>
             ))}
           </div>
@@ -179,10 +202,11 @@ const Services = () => {
         <div className="container mx-auto">
           <ScrollAnimation>
             <div className="text-center mb-16">
-              <span className="inline-block text-sm font-medium text-primary mb-3">Our Process</span>
+              <span className="inline-block text-sm font-medium text-primary mb-3 animate-text-float">Our Process</span>
               <AnimatedHeading 
                 text="How We Create Amazing Content" 
                 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6"
+                rainbow={true}
               />
               <p className="text-muted-foreground max-w-2xl mx-auto">
                 Our strategic approach ensures we deliver content that connects with your audience and achieves your goals.
@@ -192,7 +216,13 @@ const Services = () => {
 
           <div className="relative">
             {/* Process steps */}
-            <div className="hidden md:block absolute top-1/2 left-0 right-0 h-0.5 bg-border -translate-y-1/2 z-0"></div>
+            <motion.div 
+              className="hidden md:block absolute top-1/2 left-0 right-0 h-0.5 bg-border -translate-y-1/2 z-0"
+              initial={{ width: 0 }}
+              whileInView={{ width: '100%' }}
+              transition={{ duration: 1, ease: "easeInOut" }}
+              viewport={{ once: true }}
+            ></motion.div>
             <div className="grid grid-cols-1 md:grid-cols-4 gap-6 relative z-10">
               {[
                 {
@@ -217,13 +247,26 @@ const Services = () => {
                 }
               ].map((step, index) => (
                 <ScrollAnimation key={step.number} delay={index * 150}>
-                  <div className="glass-card hover-lift text-center h-full">
-                    <div className="w-12 h-12 rounded-full bg-primary flex items-center justify-center text-white font-bold mx-auto mb-6">
+                  <motion.div 
+                    className="glass-card hover-lift text-center h-full"
+                    whileHover={{ 
+                      scale: 1.03,
+                      boxShadow: '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)'
+                    }}
+                  >
+                    <motion.div 
+                      className="w-12 h-12 rounded-full bg-primary flex items-center justify-center text-white font-bold mx-auto mb-6"
+                      whileHover={{ 
+                        rotate: 360,
+                        scale: 1.1, 
+                        transition: { duration: 0.5 }
+                      }}
+                    >
                       {step.number}
-                    </div>
-                    <h3 className="text-xl font-semibold mb-3">{step.title}</h3>
+                    </motion.div>
+                    <h3 className="text-xl font-semibold mb-3 animate-text-gradient bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent">{step.title}</h3>
                     <p className="text-muted-foreground">{step.description}</p>
-                  </div>
+                  </motion.div>
                 </ScrollAnimation>
               ))}
             </div>
@@ -239,17 +282,34 @@ const Services = () => {
               <AnimatedHeading 
                 text="Ready to Elevate Your Content?" 
                 className="text-3xl md:text-4xl font-bold mb-6"
+                typed={true}
               />
               <p className="text-muted-foreground mb-8">
                 Explore our packages to find the perfect content solution for your brand, or contact us for a custom quote.
               </p>
               <div className="flex flex-wrap justify-center gap-4">
-                <Link to="/packages" className="btn-primary inline-flex items-center">
-                  View Packages <ArrowRight size={16} className="ml-2" />
-                </Link>
-                <Link to="/contact" className="btn-secondary inline-flex items-center">
-                  Contact Us
-                </Link>
+                <motion.div
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <Link to="/packages" className="btn-primary inline-flex items-center group">
+                    View Packages 
+                    <motion.div
+                      animate={{ x: [0, 5, 0] }}
+                      transition={{ repeat: Infinity, duration: 1.5 }}
+                    >
+                      <ArrowRight size={16} className="ml-2" />
+                    </motion.div>
+                  </Link>
+                </motion.div>
+                <motion.div
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <Link to="/contact" className="btn-secondary inline-flex items-center">
+                    Contact Us
+                  </Link>
+                </motion.div>
               </div>
             </div>
           </ScrollAnimation>

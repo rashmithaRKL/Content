@@ -2,6 +2,7 @@
 import React, { ReactNode } from 'react';
 import Navbar from './Navbar';
 import Footer from './Footer';
+import { AnimatePresence, motion } from 'framer-motion';
 
 interface LayoutProps {
   children: ReactNode;
@@ -11,9 +12,17 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
   return (
     <div className="flex flex-col min-h-screen">
       <Navbar />
-      <main className="flex-grow">
-        {children}
-      </main>
+      <motion.main 
+        className="flex-grow"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        transition={{ duration: 0.4 }}
+      >
+        <AnimatePresence mode="wait">
+          {children}
+        </AnimatePresence>
+      </motion.main>
       <Footer />
     </div>
   );

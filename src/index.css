@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -152,6 +153,92 @@
     animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
   }
   
+  /* New text animation classes */
+  .animate-text-gradient {
+    background-size: 200% 200%;
+    background-image: linear-gradient(45deg, #0070f3, #00c3ff, #0070f3);
+    animation: gradientText 4s ease infinite;
+  }
+  
+  .animate-rainbow-text {
+    background-image: linear-gradient(to right, #f00, #ff0, #0f0, #0ff, #00f, #f0f, #f00);
+    background-size: 200% auto;
+    animation: rainbowText 6s linear infinite;
+  }
+  
+  .animate-glitch {
+    position: relative;
+    animation: glitchText 3s infinite;
+  }
+  
+  .animate-glitch::before,
+  .animate-glitch::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #fff;
+  }
+  
+  .animate-glitch::before {
+    left: 2px;
+    text-shadow: -1px 0 #ff00c1;
+    clip: rect(24px, 550px, 90px, 0);
+    animation: glitchText 3s infinite linear alternate-reverse;
+  }
+  
+  .animate-glitch::after {
+    left: -2px;
+    text-shadow: -1px 0 #00fff9;
+    clip: rect(85px, 550px, 140px, 0);
+    animation: glitchText 4s infinite linear alternate-reverse;
+  }
+  
+  .animate-text-shine {
+    background: linear-gradient(90deg, #000, #fff, #000);
+    background-size: 200% auto;
+    background-clip: text;
+    text-fill-color: transparent;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shine 2s linear infinite;
+  }
+  
+  .animate-text-float {
+    animation: floatingText 3s ease-in-out infinite;
+  }
+  
+  @keyframes gradientText {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+  
+  @keyframes rainbowText {
+    to { background-position: 200% center; }
+  }
+  
+  @keyframes glitchText {
+    0% { transform: translate(0); }
+    20% { transform: translate(-2px, 2px); }
+    40% { transform: translate(-2px, -2px); }
+    60% { transform: translate(2px, 2px); }
+    80% { transform: translate(2px, -2px); }
+    100% { transform: translate(0); }
+  }
+  
+  @keyframes shine {
+    to { background-position: 200% center; }
+  }
+  
+  @keyframes floatingText {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+  }
+  
+  /* Original animations */
   @keyframes pulse {
     0%, 100% {
       opacity: 1;
@@ -161,10 +248,6 @@
       opacity: 0.9;
       transform: scale(1.03);
     }
-  }
-  
-  .float {
-    animation: float 6s ease-in-out infinite;
   }
   
   @keyframes float {
