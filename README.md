@@ -1,28 +1,36 @@
-# Welcome to your Lovable project
+Creator
 
-## Project info
+About
 
-**URL**: https://lovable.dev/projects/1a132eb7-3b96-4c8c-984e-beab91946298
+Creator is a content creating website built using TypeScript.
+This provide professional content creation solutions to help grow your brand’s online presence including social media posts, visual contents and deliver customized content tailored to audience.
 
-## How can I edit this code?
+Every detail is crafted to convey elegance, comfort, and ultimate relaxation.
 
-There are several ways of editing your application.
+This project is developed by Dexlanka Software Solutions — dexlanka.com.
 
-**Use Lovable**
+You can view the live website here: Visit Creator
+(https://rashmitharkl.github.io/)
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/1a132eb7-3b96-4c8c-984e-beab91946298) and start prompting.
+Features
 
-Changes made via Lovable will be committed automatically to this repo.
+🖋️ Professional content writing for blogs, websites, and social media
 
-**Use your preferred IDE**
+🎨 Custom content design tailored to brand identity
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+📈 SEO-optimized writing to boost search rankings
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+📱 Fully responsive and mobile-friendly design
 
-Follow these steps:
+⚡ Fast, modern, and built with TypeScript
 
-```sh
+🌐 Easy integration with marketing platforms and CMS
+
+How to Run Locally
+
+Follow these steps to set up and run the project on your local machine:
+
+sh
 # Step 1: Clone the repository using the project's Git URL.
 git clone <YOUR_GIT_URL>
 
@@ -30,40 +38,14 @@ git clone <YOUR_GIT_URL>
 cd <YOUR_PROJECT_NAME>
 
 # Step 3: Install the necessary dependencies.
-npm i
+npm install
 
 # Step 4: Start the development server with auto-reloading and an instant preview.
 npm run dev
-```
 
-**Edit a file directly in GitHub**
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+## Project Information
 
-**Use GitHub Codespaces**
+Developed by: Dexlanka Software Solutions
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with .
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/1a132eb7-3b96-4c8c-984e-beab91946298) and click on Share -> Publish.
-
-## I want to use a custom domain - is that possible?
-
-We don't support custom domains (yet). If you want to deploy your project under your own domain then we recommend using Netlify. Visit our docs for more details: [Custom domains](https://docs.lovable.dev/tips-tricks/custom-domain/)
+Technologies used: TypeScript, [add others like React, TailwindCSS, etc. if used]
