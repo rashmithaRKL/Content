@@ -10,7 +10,7 @@ Every detail is crafted to convey elegance, comfort, and ultimate relaxation.
 This project is developed by Dexlanka Software Solutions — dexlanka.com.
 
 You can view the live website here: Visit Creator
-(https://rashmitharkl.github.io/)
+(https://rashmitharkl.github.io/Content/)
 
 Features
 
