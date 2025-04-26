@@ -30,7 +30,6 @@ How to Run Locally
 
 Follow these steps to set up and run the project on your local machine:
 
-sh
 Step 1: Clone the repository using the project's Git URL.
 git clone <YOUR_GIT_URL>
 
