@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 
 const Hero: React.FC = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
-  
+
   useEffect(() => {
     // Only attempt to play video if component is mounted
     const videoElement = videoRef.current;
@@ -17,14 +17,14 @@ const Hero: React.FC = () => {
           console.error("Video play failed:", error);
         });
       };
-      
+
       videoElement.addEventListener('loadedmetadata', handleLoaded);
-      
+
       // If video is already loaded, play it
       if (videoElement.readyState >= 2) {
         handleLoaded();
       }
-      
+
       return () => {
         videoElement.removeEventListener('loadedmetadata', handleLoaded);
         videoElement.pause();
@@ -37,7 +37,7 @@ const Hero: React.FC = () => {
       {/* Background video */}
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-black/50 z-10"></div>
-        <video 
+        <video
           ref={videoRef}
           className="w-full h-full object-cover"
           autoPlay
@@ -50,7 +50,7 @@ const Hero: React.FC = () => {
           Your browser does not support the video tag.
         </video>
       </div>
-      
+
       {/* Content */}
       <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-3xl">
@@ -63,7 +63,7 @@ const Hero: React.FC = () => {
               Premium Content Creation
             </span>
           </motion.div>
-          
+
           <motion.h1
             className="text-4xl md:text-6xl font-bold text-white mb-6"
             initial={{ opacity: 0, y: 30 }}
@@ -73,7 +73,7 @@ const Hero: React.FC = () => {
             Transform your <span className="text-gradient">ideas</span> into<br />
             engaging <span className="text-gradient">content</span>
           </motion.h1>
-          
+
           <motion.p
             className="text-lg md:text-xl text-white/90 mb-8"
             initial={{ opacity: 0, y: 30 }}
@@ -83,7 +83,7 @@ const Hero: React.FC = () => {
             Elevate your brand with our professional content creation services.
             We specialize in creating captivating content that resonates with your audience.
           </motion.p>
-          
+
           <motion.div
             className="flex flex-wrap gap-4"
             initial={{ opacity: 0, y: 30 }}
@@ -100,7 +100,7 @@ const Hero: React.FC = () => {
           </motion.div>
         </div>
       </div>
-      
+
       {/* Animated overlay shape */}
       <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-background to-transparent z-10"></div>
     </div>

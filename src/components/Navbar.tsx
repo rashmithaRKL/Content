@@ -56,22 +56,21 @@ const Navbar: React.FC = () => {
         document.body.style.overflow = '';
       }
     }
-    
+
     return () => {
       document.body.style.overflow = '';
     };
   }, [isMobileMenuOpen, isMobile]);
 
   return (
-    <header 
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-white/80 dark:bg-black/80 backdrop-blur-md py-3 shadow-md' : 'bg-transparent py-5'
-      }`}
+    <header
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-white/80 dark:bg-black/80 backdrop-blur-md py-3 shadow-md' : 'bg-transparent py-5'
+        }`}
     >
       <div className="container mx-auto px-6 flex justify-between items-center">
         {/* Logo */}
         <Link to="/" className="text-2xl font-bold text-gradient">
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5 }}
@@ -86,11 +85,10 @@ const Navbar: React.FC = () => {
             <Link
               key={link.path}
               to={link.path}
-              className={`relative overflow-hidden px-2 py-1 transition-colors ${
-                location.pathname === link.path 
-                  ? 'text-primary font-medium' 
+              className={`relative overflow-hidden px-2 py-1 transition-colors ${location.pathname === link.path
+                  ? 'text-primary font-medium'
                   : 'text-foreground/80 hover:text-primary'
-              }`}
+                }`}
             >
               <motion.span
                 initial={{ opacity: 0, y: 10 }}
@@ -110,7 +108,7 @@ const Navbar: React.FC = () => {
         </nav>
 
         {/* Mobile menu button */}
-        <button 
+        <button
           className="md:hidden text-foreground p-2 focus:outline-none focus:ring-2 focus:ring-primary/50 rounded-md"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
@@ -136,11 +134,10 @@ const Navbar: React.FC = () => {
                   <Link
                     key={link.path}
                     to={link.path}
-                    className={`py-2 text-lg ${
-                      location.pathname === link.path
+                    className={`py-2 text-lg ${location.pathname === link.path
                         ? 'text-primary font-medium'
                         : 'text-foreground/80'
-                    }`}
+                      }`}
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
                     {link.name}
